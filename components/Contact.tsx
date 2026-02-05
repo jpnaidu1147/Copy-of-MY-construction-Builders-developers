@@ -68,7 +68,11 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h5 className="font-bold text-sm uppercase tracking-wider mb-1">Call Us</h5>
-                  <p className="text-gray-400 text-sm">+91 99459 30894<br />Mon - Sat: 9am - 7pm</p>
+                  <p className="text-gray-400 text-sm">
+                    +91 99459 30894 <br />
+                    +91 79750 61799 <br />
+                    Mon - Sat: 9am - 7pm
+                  </p>
                 </div>
               </div>
 
