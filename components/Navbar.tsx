@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-2' : 'bg-transparent py-4 md:py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-2 md:py-3' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Left Side: Logo & 3D Text */}
         <div className="flex items-center gap-3 lg:gap-4 xl:gap-6">
@@ -37,8 +37,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               transition-all duration-500 transform overflow-hidden 
               rounded-xl p-2 bg-white
               ${isScrolled 
-                ? 'h-12 md:h-16 shadow-md border-b-2 border-gray-200' 
-                : 'h-20 md:h-28 lg:h-28 xl:h-36 shadow-[0_15px_30px_rgba(0,0,0,0.3),inset_0_-2px_4px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] border-b-4 border-r-4 border-gray-100'
+                ? 'h-16 md:h-20 shadow-md border-b-2 border-gray-200' 
+                : 'h-16 md:h-24 lg:h-28 shadow-[0_15px_30px_rgba(0,0,0,0.3),inset_0_-2px_4px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] border-b-4 border-r-4 border-gray-100'
               }
               flex items-center justify-center
             `}>
@@ -46,17 +46,16 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 src="https://lh3.googleusercontent.com/d/1WWQnv1BJuNpxBwq3NYM6XDXd3eaVWGGq" 
                 alt="MY Constructions Logo" 
                 className="h-full w-auto object-contain transition-all duration-500"
-                style={{ mixBlendMode: 'multiply' }}
               />
             </div>
           </a>
 
-          {/* 3D Company Name - Visible on larger screens (lg+) */}
-          <div className={`hidden lg:flex flex-col transition-all duration-500 ${isScrolled ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-2'}`}>
+          {/* 3D Company Name - Visible only on XL screens to prevent crowding */}
+          <div className={`hidden xl:flex flex-col transition-all duration-500 ${isScrolled ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-2'}`}>
             <h1 
               className={`font-display font-black italic tracking-tighter leading-none transition-colors duration-300 
                 ${isScrolled ? 'text-construction-deep' : 'text-white'}
-                text-xl lg:text-2xl xl:text-3xl
+                text-2xl xl:text-3xl
               `}
               style={{ 
                 textShadow: isScrolled 
@@ -68,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </h1>
             <span className={`font-bold tracking-[0.3em] uppercase mt-1 transition-colors duration-300 
               ${isScrolled ? 'text-construction-safety' : 'text-white/90'}
-              text-[8px] lg:text-[10px] xl:text-xs
+              text-xs
             `}>
               Builders & Developers
             </span>
@@ -76,15 +75,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
 
         {/* Right Side: Navigation Links */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
-          <div className="flex items-center gap-4 xl:gap-8 bg-white/5 backdrop-blur-sm px-4 xl:px-6 py-2 rounded-full border border-white/10">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+          <div className="flex items-center gap-4 xl:gap-8 bg-black/20 backdrop-blur-md px-4 xl:px-6 py-2 rounded-full border border-white/10 shadow-lg">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-[10px] xl:text-sm font-black uppercase tracking-[0.15em] transition-all relative group/link 
-                  ${isScrolled ? 'text-construction-deep' : 'text-white'}
-                  ${activeSection === link.id ? 'text-construction-safety' : 'hover:text-construction-safety'}
+                className={`text-[11px] xl:text-xs font-bold uppercase tracking-[0.15em] transition-all relative group/link 
+                  ${activeSection === link.id ? 'text-construction-safety' : 'text-white hover:text-construction-safety'}
                 `}
               >
                 {link.name}
