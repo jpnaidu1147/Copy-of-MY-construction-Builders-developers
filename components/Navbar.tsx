@@ -28,17 +28,17 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-3' : 'bg-transparent py-6 md:py-10'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Refined 3D Logo Container */}
-        <div className="flex items-center">
-          <a href="#home" className="block relative group">
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-2' : 'bg-transparent py-4 md:py-6'}`}>
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+        {/* Left Side: Logo & 3D Text */}
+        <div className="flex items-center gap-3 lg:gap-4 xl:gap-6">
+          <a href="#home" className="block relative group z-50">
             <div className={`
               transition-all duration-500 transform overflow-hidden 
               rounded-xl p-2 bg-white
               ${isScrolled 
-                ? 'h-14 md:h-16 shadow-md border-b-2 border-gray-200' 
-                : 'h-20 md:h-24 shadow-[0_15px_30px_rgba(0,0,0,0.3),inset_0_-2px_4px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] border-b-4 border-r-4 border-gray-100'
+                ? 'h-12 md:h-16 shadow-md border-b-2 border-gray-200' 
+                : 'h-20 md:h-28 lg:h-28 xl:h-36 shadow-[0_15px_30px_rgba(0,0,0,0.3),inset_0_-2px_4px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] border-b-4 border-r-4 border-gray-100'
               }
               flex items-center justify-center
             `}>
@@ -50,16 +50,39 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               />
             </div>
           </a>
+
+          {/* 3D Company Name - Visible on larger screens (lg+) */}
+          <div className={`hidden lg:flex flex-col transition-all duration-500 ${isScrolled ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-2'}`}>
+            <h1 
+              className={`font-display font-black italic tracking-tighter leading-none transition-colors duration-300 
+                ${isScrolled ? 'text-construction-deep' : 'text-white'}
+                text-xl lg:text-2xl xl:text-3xl
+              `}
+              style={{ 
+                textShadow: isScrolled 
+                  ? '2px 2px 0px #cbd5e1' 
+                  : '2px 2px 0px #f97316, 4px 4px 0px rgba(0,0,0,0.2)' 
+              }}
+            >
+              M&Y CONSTRUCTIONS
+            </h1>
+            <span className={`font-bold tracking-[0.3em] uppercase mt-1 transition-colors duration-300 
+              ${isScrolled ? 'text-construction-safety' : 'text-white/90'}
+              text-[8px] lg:text-[10px] xl:text-xs
+            `}>
+              Builders & Developers
+            </span>
+          </div>
         </div>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-10">
-          <div className="flex items-center gap-10">
+        {/* Right Side: Navigation Links */}
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
+          <div className="flex items-center gap-4 xl:gap-8 bg-white/5 backdrop-blur-sm px-4 xl:px-6 py-2 rounded-full border border-white/10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-black uppercase tracking-[0.2em] transition-all relative group/link 
+                className={`text-[10px] xl:text-sm font-black uppercase tracking-[0.15em] transition-all relative group/link 
                   ${isScrolled ? 'text-construction-deep' : 'text-white'}
                   ${activeSection === link.id ? 'text-construction-safety' : 'hover:text-construction-safety'}
                 `}
@@ -73,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           </div>
           <a
             href="#contact"
-            className="bg-construction-safety text-white px-8 py-3.5 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            className="bg-construction-safety text-white px-5 xl:px-6 py-3 rounded-sm font-black uppercase text-[10px] xl:text-xs tracking-widest hover:bg-orange-600 transition-all shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:-translate-y-0.5 active:translate-y-0 transform hover:scale-105 whitespace-nowrap"
           >
             Get Started
           </a>
@@ -81,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
         {/* Mobile Toggle */}
         <button
-          className={`md:hidden p-2 rounded-lg ${isScrolled ? 'text-construction-deep' : 'text-white'}`}
+          className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-construction-deep' : 'text-white bg-black/20 backdrop-blur-sm'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -90,8 +113,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 animate-fade-in-down">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 animate-fade-in-down z-40">
           <div className="flex flex-col p-8 gap-6">
+            <div className="mb-4 pb-4 border-b border-gray-100">
+               <h2 className="text-2xl font-display font-black text-construction-deep italic tracking-tighter" style={{ textShadow: '2px 2px 0px #cbd5e1' }}>
+                  M&Y CONSTRUCTIONS
+               </h2>
+               <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-construction-safety mt-1">Builders & Developers</p>
+            </div>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -104,7 +133,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 {link.name}
               </a>
             ))}
-            <button className="bg-construction-safety text-white px-6 py-5 rounded-sm font-black uppercase text-sm mt-4">
+            <button className="bg-construction-safety text-white px-6 py-5 rounded-sm font-black uppercase text-sm mt-4 shadow-lg">
               Get Started Now
             </button>
           </div>

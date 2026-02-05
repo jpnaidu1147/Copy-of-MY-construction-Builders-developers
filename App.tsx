@@ -97,7 +97,7 @@ function App() {
               { label: 'Completed Projects', value: '250+' },
               { label: 'Happy Clients', value: '180+' },
               { label: 'Years Experience', value: '15+' },
-              { label: 'Awards Won', value: '12+' }
+              { label: 'Professional Engineers', value: '20+' }
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-3xl md:text-4xl font-black text-white mb-2 font-display">{stat.value}</div>

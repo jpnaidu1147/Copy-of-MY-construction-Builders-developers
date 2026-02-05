@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -14,7 +15,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-construction-deep via-construction-deep/80 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center pt-32 pb-20">
+      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center pt-48 md:pt-60 lg:pt-64 pb-20">
         {/* Left Content */}
         <div className="space-y-10">
           <div className="flex items-center gap-4 text-construction-safety">
@@ -58,8 +59,8 @@ const Hero: React.FC = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-construction-deep translate-x-1/2 -translate-y-1/2 rotate-45 z-20"></div>
           </div>
 
-          {/* Floating Card - Updated to 20+ Engineers */}
-          <div className="absolute bottom-10 -left-16 bg-white p-8 shadow-2xl max-w-[320px] z-30 border-b-8 border-construction-safety">
+          {/* Floating Card - Fixed Overlap Issue by using left-0 */}
+          <div className="absolute bottom-10 left-0 bg-white p-8 shadow-2xl max-w-[320px] z-30 border-b-8 border-construction-safety">
             <div className="flex items-center gap-4 mb-4">
               <div className="bg-construction-safety px-4 py-3 rounded-sm shadow-lg">
                 <span className="text-white font-black text-2xl">20+</span>

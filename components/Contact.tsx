@@ -1,11 +1,34 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'Civil Structure & RCC',
+    details: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! Your inquiry has been received. Our engineering team will contact you shortly.');
+    
+    // Construct Email mailto link
+    const emailTo = "info@myconstructions.com";
+    const subject = encodeURIComponent(`New Proposal Request: ${formData.service}`);
+    const body = encodeURIComponent(
+      `Hello MY Constructions,\n\nI am interested in a proposal.\n\nName: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\n\nProject Details:\n${formData.details}`
+    );
+    
+    window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -55,7 +78,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h5 className="font-bold text-sm uppercase tracking-wider mb-1">Email Us</h5>
-                  <p className="text-gray-400 text-sm">info@myconstructions.in</p>
+                  <p className="text-gray-400 text-sm">info@myconstructions.com</p>
                 </div>
               </div>
             </div>
@@ -71,6 +94,9 @@ const Contact: React.FC = () => {
                   <input 
                     required 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-construction-safety transition-colors" 
                     placeholder="Enter your name"
                   />
@@ -80,6 +106,9 @@ const Contact: React.FC = () => {
                   <input 
                     required 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-construction-safety transition-colors" 
                     placeholder="email@example.com"
                   />
@@ -88,7 +117,12 @@ const Contact: React.FC = () => {
               
               <div>
                 <label className="block text-xs font-bold text-construction-steel uppercase mb-2">Service Required</label>
-                <select className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-construction-safety transition-colors appearance-none">
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-construction-safety transition-colors appearance-none"
+                >
                   <option>Civil Structure & RCC</option>
                   <option>Interior Finishing</option>
                   <option>Turnkey Projects</option>
@@ -99,14 +133,17 @@ const Contact: React.FC = () => {
               <div>
                 <label className="block text-xs font-bold text-construction-steel uppercase mb-2">Project Details</label>
                 <textarea 
+                  name="details"
+                  value={formData.details}
+                  onChange={handleChange}
                   rows={4} 
                   className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-construction-safety transition-colors" 
                   placeholder="Describe your project requirements..."
                 ></textarea>
               </div>
 
-              <button className="w-full bg-construction-safety text-white font-black py-4 uppercase text-sm tracking-[0.2em] hover:bg-orange-600 transition-all flex items-center justify-center gap-3">
-                Send Message
+              <button type="submit" className="w-full bg-construction-safety text-white font-black py-4 uppercase text-sm tracking-[0.2em] hover:bg-orange-600 transition-all flex items-center justify-center gap-3">
+                Send Request via Email
                 <Send className="w-4 h-4" />
               </button>
             </form>

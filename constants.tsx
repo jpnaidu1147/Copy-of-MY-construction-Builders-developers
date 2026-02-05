@@ -1,3 +1,4 @@
+
 import { ShieldCheck, Zap, Award, Clock } from 'lucide-react';
 import { ServiceItem, ProjectItem, TestimonialItem, PackageItem } from './types';
 
@@ -44,7 +45,7 @@ export const PACKAGES: PackageItem[] = [
       'Basic plumbing with standard CP fittings',
       'Vitrified tile flooring (standard size)',
       'Flush doors with basic fittings',
-      'Aluminium windows with clear glass',
+      'UPVC windows with clear glass',
       'Interior & exterior emulsion paint (basic grade)'
     ],
     idealFor: 'First-time home builders and rental properties.'
