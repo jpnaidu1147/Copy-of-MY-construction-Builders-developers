@@ -15,32 +15,32 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-construction-deep via-construction-deep/80 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center pt-48 md:pt-60 lg:pt-64 pb-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center pt-32 md:pt-48 lg:pt-64 pb-12 md:pb-20">
         {/* Left Content */}
-        <div className="space-y-10">
+        <div className="space-y-8 md:space-y-10">
           <div className="flex items-center gap-4 text-construction-safety">
             <div className="w-12 h-1.5 bg-construction-safety"></div>
             <span className="uppercase tracking-[0.4em] font-black text-xs md:text-sm">What we do</span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-display font-black text-white leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-black text-white leading-[1.1]">
             Building <br />
             <span className="text-construction-safety">Trust</span> <br />
             Shaping <br />
             Tomorrow.
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
+          <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-lg leading-relaxed">
             From Concept to Keys. Our team delivers reliable solutions tailored to your specific needs.
             We prioritize <span className="text-white font-bold">Quality Assurance</span> and Timely Delivery.
           </p>
 
-          <div className="flex flex-wrap gap-6 pt-4">
-            <a href="#about" className="bg-construction-safety text-white px-10 py-5 rounded-sm font-black uppercase text-sm tracking-widest hover:bg-orange-600 transition-all flex items-center gap-3 group shadow-[0_10px_30px_rgba(249,115,22,0.3)]">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#about" className="bg-construction-safety text-white px-8 py-4 md:px-10 md:py-5 rounded-sm font-black uppercase text-xs md:text-sm tracking-widest hover:bg-orange-600 transition-all flex items-center justify-center gap-3 group shadow-[0_10px_30px_rgba(249,115,22,0.3)]">
               LEARN MORE
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#projects" className="border-2 border-white/20 text-white hover:bg-white/5 px-10 py-5 rounded-sm font-black uppercase text-sm tracking-widest transition-all">
+            <a href="#projects" className="border-2 border-white/20 text-white hover:bg-white/5 px-8 py-4 md:px-10 md:py-5 rounded-sm font-black uppercase text-xs md:text-sm tracking-widest transition-all text-center">
               VIEW PROJECTS
             </a>
           </div>
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Floating Card - Fixed Overlap Issue by using left-0 */}
-          <div className="absolute bottom-10 left-0 bg-white p-8 shadow-2xl max-w-[320px] z-30 border-b-8 border-construction-safety">
+          <div className="absolute bottom-10 left-0 bg-white p-6 lg:p-8 shadow-2xl max-w-[280px] lg:max-w-[320px] z-30 border-b-8 border-construction-safety">
             <div className="flex items-center gap-4 mb-4">
               <div className="bg-construction-safety px-4 py-3 rounded-sm shadow-lg">
                 <span className="text-white font-black text-2xl">20+</span>

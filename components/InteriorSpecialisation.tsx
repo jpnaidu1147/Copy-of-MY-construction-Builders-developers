@@ -35,8 +35,8 @@ const InteriorSpecialisation: React.FC = () => {
 
   return (
     <section id="interiors" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           <div>
             <div className="flex items-center gap-3 text-construction-safety mb-6">
               <div className="w-12 h-1 bg-construction-safety"></div>
@@ -78,9 +78,9 @@ const InteriorSpecialisation: React.FC = () => {
         </div>
 
         {/* Glass Works Highlight Section */}
-        <div className="bg-construction-deep p-10 md:p-16 rounded-sm relative overflow-hidden shadow-2xl">
+        <div className="bg-construction-deep p-6 md:p-10 lg:p-16 rounded-sm relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-construction-safety/10 -translate-y-1/2 translate-x-1/2 rounded-full blur-3xl"></div>
-          <div className="relative z-10 grid md:grid-cols-3 gap-12 items-center">
+          <div className="relative z-10 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 text-construction-safety mb-4">
                 <Maximize className="w-8 h-8" />

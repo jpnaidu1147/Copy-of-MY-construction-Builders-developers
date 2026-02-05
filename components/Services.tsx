@@ -46,22 +46,22 @@ const Services: React.FC = () => {
 
   return (
     <section id="services" className="py-24 bg-zinc-50 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/4 h-full bg-white -z-0"></div>
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-white -z-0 hidden md:block"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16">
-          <h2 className="text-5xl md:text-7xl font-display font-black text-construction-deep mb-6 uppercase tracking-tight">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black text-construction-deep mb-6 uppercase tracking-tight">
             Construction <br /><span className="text-construction-safety">Solutions</span>
           </h2>
           <div className="w-32 h-2.5 bg-construction-safety"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {SERVICES.map((service) => (
             <div 
               key={service.id} 
               onClick={() => handleOpen(service.id)}
-              className="group bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-construction-safety/50 hover:shadow-2xl transition-all duration-500 flex flex-col items-start min-h-[420px] relative overflow-hidden cursor-pointer"
+              className="group bg-white p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-construction-safety/50 hover:shadow-2xl transition-all duration-500 flex flex-col items-start min-h-[380px] md:min-h-[420px] relative overflow-hidden cursor-pointer rounded-sm"
             >
               <div className="bg-zinc-50 p-6 rounded-sm text-construction-deep group-hover:bg-construction-safety group-hover:text-white transition-all mb-8 relative z-10">
                 {iconMap[service.icon]}
@@ -87,9 +87,9 @@ const Services: React.FC = () => {
           ))}
         </div>
         
-        <div className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16 pt-12 border-t border-gray-200">
+        <div className="mt-20 flex flex-wrap justify-center gap-6 md:gap-16 pt-12 border-t border-gray-200">
           {['Reinforced RCC', 'Structural Engineering', 'Finishing Works', 'Project Execution'].map(word => (
-            <span key={word} className="text-construction-steel/40 uppercase tracking-[0.3em] font-black text-[10px] hover:text-construction-safety transition-colors cursor-default">
+            <span key={word} className="text-construction-steel/40 uppercase tracking-[0.2em] md:tracking-[0.3em] font-black text-[10px] hover:text-construction-safety transition-colors cursor-default text-center">
               {word}
             </span>
           ))}
@@ -104,16 +104,16 @@ const Services: React.FC = () => {
             onClick={handleClose}
           ></div>
           
-          <div className="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-up rounded-sm border-t-[12px] border-construction-safety">
+          <div className="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-up rounded-sm border-t-[12px] border-construction-safety flex flex-col md:block">
             <button 
               onClick={handleClose}
-              className="absolute top-6 right-6 p-2 text-construction-steel hover:text-construction-safety hover:rotate-90 transition-all z-20"
+              className="absolute top-4 right-4 md:top-6 md:right-6 p-2 text-construction-steel hover:text-construction-safety hover:rotate-90 transition-all z-20"
               aria-label="Close modal"
             >
-              <X size={32} />
+              <X className="w-7 h-7 md:w-8 md:h-8" />
             </button>
 
-            <div className="grid md:grid-cols-5 min-h-[500px]">
+            <div className="grid md:grid-cols-5 min-h-0 md:min-h-[500px]">
               <div className="bg-zinc-50 p-8 md:col-span-2 hidden md:flex flex-col items-center justify-center text-center border-r border-gray-100">
                 <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-construction-safety shadow-xl mb-6 ring-4 ring-zinc-50">
                   {iconMap[selectedService.icon]}
@@ -122,13 +122,24 @@ const Services: React.FC = () => {
                 <p className="font-display font-black text-construction-deep text-lg uppercase mt-2 tracking-tighter">{selectedService.title}</p>
               </div>
 
-              <div className="p-8 md:p-14 md:col-span-3">
+              <div className="p-6 md:p-14 md:col-span-3 overflow-y-auto">
+                {/* Mobile Icon View */}
+                <div className="md:hidden flex items-center gap-4 mb-6 pb-6 border-b border-gray-100">
+                   <div className="w-16 h-16 bg-zinc-50 rounded-full flex items-center justify-center text-construction-safety">
+                      {iconMap[selectedService.icon]}
+                   </div>
+                   <div>
+                      <h4 className="text-[10px] uppercase tracking-widest font-black text-construction-steel/60">Construction Unit</h4>
+                      <p className="font-display font-black text-construction-deep text-lg uppercase leading-none">{selectedService.title}</p>
+                   </div>
+                </div>
+
                 <div className="mb-8">
-                  <h3 className="text-3xl md:text-5xl font-display font-black text-construction-deep mb-4 uppercase tracking-tighter leading-none">
+                  <h3 className="text-2xl md:text-5xl font-display font-black text-construction-deep mb-4 uppercase tracking-tighter leading-none">
                     {selectedService.title}
                   </h3>
-                  <div className="w-20 h-1.5 bg-construction-safety mb-10"></div>
-                  <p className="text-construction-steel text-lg leading-relaxed italic mb-8 border-l-4 border-zinc-100 pl-6">
+                  <div className="w-16 md:w-20 h-1.5 bg-construction-safety mb-6 md:mb-10"></div>
+                  <p className="text-construction-steel text-base md:text-lg leading-relaxed italic mb-8 border-l-4 border-zinc-100 pl-6">
                     {details.fullDesc}
                   </p>
                 </div>
@@ -138,7 +149,7 @@ const Services: React.FC = () => {
                   <div className="grid grid-cols-1 gap-4">
                     {details.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-4 bg-zinc-50 p-4 rounded-sm border-l-2 border-transparent hover:border-construction-safety transition-all group/feat">
-                        <CheckCircle2 className="w-6 h-6 text-construction-safety shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-construction-safety shrink-0" />
                         <span className="text-sm font-black text-construction-deep/80 group-hover/feat:text-construction-deep">{feature}</span>
                       </div>
                     ))}
@@ -161,7 +172,7 @@ const Services: React.FC = () => {
                       window.history.pushState(null, '', '#contact');
                     }
                   }}
-                  className="w-full bg-construction-deep text-white py-6 px-8 rounded-sm font-black uppercase text-xs tracking-[0.3em] hover:bg-construction-safety transition-all shadow-xl flex items-center justify-center gap-4 group"
+                  className="w-full bg-construction-deep text-white py-4 md:py-6 px-8 rounded-sm font-black uppercase text-xs tracking-[0.3em] hover:bg-construction-safety transition-all shadow-xl flex items-center justify-center gap-4 group"
                 >
                   REQUEST CONSULTATION
                   <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

@@ -6,7 +6,7 @@ import { Check, Info } from 'lucide-react';
 const Packages: React.FC = () => {
   return (
     <section id="packages" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-4 text-construction-safety mb-4">
             <div className="w-8 h-1 bg-construction-safety"></div>
@@ -62,11 +62,11 @@ const Packages: React.FC = () => {
         </div>
 
         {/* Notes Section */}
-        <div className="mt-16 bg-zinc-50 border-l-4 border-construction-safety p-8 md:p-10 shadow-sm rounded-sm max-w-5xl mx-auto animate-fade-in">
+        <div className="mt-12 md:mt-16 bg-zinc-50 border-l-4 border-construction-safety p-6 md:p-10 shadow-sm rounded-sm max-w-5xl mx-auto animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
             <h5 className="font-display font-black text-xl text-construction-deep uppercase tracking-tighter">📝 Important Notes</h5>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             <div className="space-y-2">
               <div className="w-8 h-1 bg-construction-safety/30 mb-4"></div>
               <p className="text-sm text-construction-steel leading-relaxed font-bold">
