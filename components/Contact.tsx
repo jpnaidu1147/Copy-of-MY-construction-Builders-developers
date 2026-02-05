@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     
     // Construct Email mailto link
-    const emailTo = "info@myconstructions.com";
+    const emailTo = "info@myconstructionbuilders.com";
     const subject = encodeURIComponent(`New Proposal Request: ${formData.service}`);
     const body = encodeURIComponent(
       `Hello MY Constructions,\n\nI am interested in a proposal.\n\nName: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\n\nProject Details:\n${formData.details}`
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h5 className="font-bold text-sm uppercase tracking-wider mb-1">Email Us</h5>
-                  <p className="text-gray-400 text-sm">info@myconstructions.com</p>
+                  <p className="text-gray-400 text-sm">info@myconstructionbuilders.com</p>
                 </div>
               </div>
             </div>
